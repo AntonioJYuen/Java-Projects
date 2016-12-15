@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="hi" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="498.0" prefWidth="481.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.axiomsl.view.AutoJiraController">
+   <children>
+      <Label alignment="CENTER" prefHeight="49.0" prefWidth="481.0" text="Prime/New Dev Release Notes" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="32.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="49.0" layoutY="67.0" prefHeight="17.0" prefWidth="71.0" text="Destination: " textAlignment="RIGHT" />
+      <TextField fx:id="destPathText" layoutX="144.0" layoutY="63.0" prefHeight="25.0" prefWidth="199.0" />
+      <Button fx:id="chooseDestButton" layoutX="357.0" layoutY="63.0" mnemonicParsing="false" onAction="#chooseDestination" text="Choose" />
+      <Label alignment="CENTER_RIGHT" layoutX="49.0" layoutY="102.0" prefHeight="17.0" prefWidth="71.0" text="Ticket Filters:" textAlignment="RIGHT" />
+      <TextField fx:id="filterText" layoutX="144.0" layoutY="98.0" prefHeight="25.0" prefWidth="199.0" />
+      <Label alignment="CENTER_RIGHT" layoutX="49.0" layoutY="136.0" text="Release Date:" textAlignment="RIGHT" />
+      <DatePicker fx:id="datePicker" layoutX="144.0" layoutY="132.0" prefHeight="25.0" prefWidth="199.0" />
+      <TitledPane animated="false" collapsible="false" layoutX="140.0" layoutY="257.0" prefHeight="155.0" prefWidth="202.0" text="Jira Login">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TextField fx:id="usernameField" layoutX="26.0" layoutY="31.0" promptText="Username" />
+                  <PasswordField fx:id="passwordField" layoutX="26.0" layoutY="83.0" promptText="Password" />
+                  <Label layoutX="26.0" layoutY="8.0" prefHeight="17.0" prefWidth="149.0" text="Username" />
+                  <Label layoutX="26.0" layoutY="62.0" prefHeight="17.0" prefWidth="149.0" text="Password" />
+               </children>
+            </AnchorPane>
+        </content>
+      </TitledPane>
+      <Button fx:id="automateButoon" layoutX="98.0" layoutY="436.0" mnemonicParsing="false" onAction="#automate" prefHeight="49.0" prefWidth="286.0" text="Generate" />
+      <TitledPane animated="false" collapsible="false" layoutX="40.0" layoutY="174.0" prefHeight="75.0" prefWidth="396.0" text="Export Files" />
+      <CheckBox fx:id="excelCB" layoutX="68.0" layoutY="215.0" mnemonicParsing="false" selected="true" text="Excel" />
+      <CheckBox fx:id="propertiesCB" layoutX="143.0" layoutY="216.0" mnemonicParsing="false" selected="true" text="Properties" />
+   </children>
+</AnchorPane>
