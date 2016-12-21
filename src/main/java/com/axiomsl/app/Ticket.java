@@ -1,7 +1,7 @@
 package com.axiomsl.app;
 
 public class Ticket {
-	
+
 	private String vID;
 	private String form;
 	private int issueNum;
@@ -12,12 +12,12 @@ public class Ticket {
 	private String cdDetails;
 	private String cdTab;
 	private int rowNum;
+	private String project;
 	private String branch;
 	private String qa_Actual_Results;
-	
 
-	public Ticket(String vID, String form, int issueNum, String jKey, String csDesc, String csImpact, char csType, String cdDetails, String cdTab, int rowNum
-				, String branch, String qa_Actual_Results) {
+	public Ticket(String vID, String form, int issueNum, String jKey, String csDesc, String csImpact, char csType,
+			String cdDetails, String cdTab, int rowNum, String project, String branch, String qa_Actual_Results) {
 		super();
 		this.vID = vID;
 		this.form = form;
@@ -29,114 +29,118 @@ public class Ticket {
 		this.cdDetails = cdDetails;
 		this.cdTab = cdTab;
 		this.rowNum = rowNum;
+		this.project = project;
 		this.branch = branch;
 		this.qa_Actual_Results = qa_Actual_Results;
 	}
 
-	public String getVID(){
+	public String getVID() {
 		return vID;
 	}
-	
-	public String getForm(){
+
+	public String getForm() {
 		return form;
 	}
-	
-	public int getIssueNum(){
+
+	public int getIssueNum() {
 		return issueNum;
 	}
-	
-	public String getJKey(){
+
+	public String getJKey() {
 		return jKey;
 	}
-	
-	public String getCsDesc(){
+
+	public String getCsDesc() {
 		return csDesc;
 	}
-	
-	public String getCsImpact(){
+
+	public String getCsImpact() {
 		return csImpact;
 	}
-	
-	public char getCsType(){
+
+	public char getCsType() {
 		return csType;
 	}
-	
-	public String getCdDetails(){
+
+	public String getCdDetails() {
 		return cdDetails;
 	}
-	
-	public String getCdTab(){
+
+	public String getCdTab() {
 		return cdTab;
 	}
-	
-	public int getRow(){
+
+	public int getRow() {
 		return rowNum;
 	}
-	
-	public String getBranch(){
+
+	public String getProject() {
+		return project;
+	}
+
+	public String getBranch() {
 		return branch;
 	}
-	
-	public String getQAActual(){
+
+	public String getQAActual() {
 		return qa_Actual_Results;
 	}
-	
-	public void setRow(int row){
+
+	public void setRow(int row) {
 		this.rowNum = row;
 	}
-	
-	public String getXForm(){
+
+	public String getXForm() {
 		if (csImpact.contains("F"))
 			return "X";
 		else
 			return "";
 	}
-	
-	public String getXEC(){
+
+	public String getXEC() {
 		if (csImpact.contains("E"))
 			return "X";
 		else
 			return "";
 	}
-	
-	public String getXCos(){
+
+	public String getXCos() {
 		if (csImpact.contains("C"))
 			return "X";
 		else
 			return "";
 	}
-	
-	public String getXOth(){
+
+	public String getXOth() {
 		if (csImpact.contains("O"))
 			return "X";
 		else
 			return "";
 	}
-	
-	public String getXReg(){
+
+	public String getXReg() {
 		if (csType == 'R')
 			return "X";
 		else
 			return "";
 	}
-	
-	public String getXFix(){
+
+	public String getXFix() {
 		if (csType == 'F')
 			return "X";
 		else
 			return "";
 	}
-	
-	public String getXEnh(){
+
+	public String getXEnh() {
 		if (csType == 'E')
 			return "X";
 		else
 			return "";
 	}
-	
-	public void setIssueNum(int i){
+
+	public void setIssueNum(int i) {
 		issueNum = i;
 	}
-	
+
 }
-	

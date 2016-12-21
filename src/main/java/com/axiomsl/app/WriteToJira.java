@@ -21,7 +21,7 @@ import java.util.List;
 public class WriteToJira {
 
  	private static final String JIRA_URL = "https://jira.axiomsl.us/";
-    private String filter;
+//    private String filter;
     protected Project project;
     private static String JIRA_ADMIN_USERNAME = "ayuen"; //Login
     private static String JIRA_ADMIN_PASSWORD = "Qwer!4045"; //Password
