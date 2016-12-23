@@ -7,7 +7,7 @@ import java.io.PrintStream;
 import java.net.URISyntaxException;
 import com.axiomsl.api.view.AbstractController;
 import com.axiomsl.api.view.LoadingIndicator;
-import com.axiomsl.us.Excel_Column_And_PDF_Compare.Compare_Excel_to_PDF;
+import com.axiomsl.us.Compare_Excel_to_PDF;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

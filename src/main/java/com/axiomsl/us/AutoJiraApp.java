@@ -1,4 +1,4 @@
-package com.axiomsl.us.Excel_Column_And_PDF_Compare;
+package com.axiomsl.us;
 
 import java.io.IOException;
 import java.net.URISyntaxException;

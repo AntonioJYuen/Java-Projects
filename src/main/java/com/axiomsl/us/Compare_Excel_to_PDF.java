@@ -1,4 +1,4 @@
-package com.axiomsl.us.Excel_Column_And_PDF_Compare;
+package com.axiomsl.us;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -11,6 +11,7 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 
+import com.itextpdf.text.log.SysoCounter;
 import com.testautomationguru.utility.PDFUtil;
 
 public class Compare_Excel_to_PDF {
@@ -35,7 +36,7 @@ public class Compare_Excel_to_PDF {
 		Workbook wb = null;
 		wb = WorkbookFactory.create(inp);
 		Sheet sheet = wb.getSheetAt(0);
-		
+
 		String pdfText = keepOnlyLetters(pdfutil.getText(pdfPath).toLowerCase().trim());
 
 		int desc = 0;
@@ -59,7 +60,7 @@ public class Compare_Excel_to_PDF {
 			} else {
 				String description = row.getCell(desc).getStringCellValue();
 
-				for (String t : description.split(":")) {
+				for (String t : multiDelimit(description, ":-_.")) {
 					// if (!distinctDescStr.contains(t.trim().toLowerCase())) {
 
 					distinctDescStr.add(t.trim().toLowerCase());
@@ -96,11 +97,26 @@ public class Compare_Excel_to_PDF {
 		}
 	}
 
-	public static String keepOnlyLetters(String s) {
+	private static String keepOnlyLetters(String s) {
 
 		String result = s.replaceAll("[^a-z,A-Z|1-9]", "");
 
 		return result;
+	}
+
+	private static String[] multiDelimit(String desc, String delimits) {
+
+		String tempDelimiter = delimits.substring(0, 1);
+		String tempDesc = desc;
+
+		for (int i = 1; i < delimits.length(); i++) {
+
+			tempDesc = tempDesc.replace(delimits.substring(i, i + 1), tempDelimiter);
+
+		}
+
+		return tempDesc.split(tempDelimiter);
+
 	}
 
 	public String getOutput() {
