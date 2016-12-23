@@ -1,0 +1,57 @@
+Cleaned directory: C:\Users\ayuen\Desktop\L\Old\
+Moved: C:\Users\ayuen\Desktop\L\New\2012-05-17_notice.pdf -> C:\Users\ayuen\Desktop\L\Old\2012-05-17_notice.pdf
+Moved: C:\Users\ayuen\Desktop\L\New\2012-25194.pdf -> C:\Users\ayuen\Desktop\L\Old\2012-25194.pdf
+Moved: C:\Users\ayuen\Desktop\L\New\2013-28608.pdf -> C:\Users\ayuen\Desktop\L\Old\2013-28608.pdf
+Moved: C:\Users\ayuen\Desktop\L\New\2014-05518.pdf -> C:\Users\ayuen\Desktop\L\Old\2014-05518.pdf
+Moved: C:\Users\ayuen\Desktop\L\New\2014-27610.pdf -> C:\Users\ayuen\Desktop\L\Old\2014-27610.pdf
+Moved: C:\Users\ayuen\Desktop\L\New\2016-02-22_notice_instructions.pdf -> C:\Users\ayuen\Desktop\L\Old\2016-02-22_notice_instructions.pdf
+Moved: C:\Users\ayuen\Desktop\L\New\2016-02-22_notice_results.pdf -> C:\Users\ayuen\Desktop\L\Old\2016-02-22_notice_results.pdf
+Moved: C:\Users\ayuen\Desktop\L\New\2016-02-22_notice_scenario_variables.pdf -> C:\Users\ayuen\Desktop\L\Old\2016-02-22_notice_scenario_variables.pdf
+Moved: C:\Users\ayuen\Desktop\L\New\2016-03606.pdf -> C:\Users\ayuen\Desktop\L\Old\2016-03606.pdf
+Moved: C:\Users\ayuen\Desktop\L\New\2016-28344.pdf -> C:\Users\ayuen\Desktop\L\Old\2016-28344.pdf
+Moved: C:\Users\ayuen\Desktop\L\New\dfast-14a-technical-submission-instructions-final.pdf -> C:\Users\ayuen\Desktop\L\Old\dfast-14a-technical-submission-instructions-final.pdf
+Moved: C:\Users\ayuen\Desktop\L\New\FR_Y-1620151231_f.pdf -> C:\Users\ayuen\Desktop\L\Old\FR_Y-1620151231_f.pdf
+Moved: C:\Users\ayuen\Desktop\L\New\FR_Y-1620151231_i.pdf -> C:\Users\ayuen\Desktop\L\Old\FR_Y-1620151231_i.pdf
+Moved: C:\Users\ayuen\Desktop\L\New\FR_Y-9LP20160930_f.pdf -> C:\Users\ayuen\Desktop\L\Old\FR_Y-9LP20160930_f.pdf
+Moved: C:\Users\ayuen\Desktop\L\New\FR_Y-9LP20160930_i.pdf -> C:\Users\ayuen\Desktop\L\Old\FR_Y-9LP20160930_i.pdf
+-----------------------------------
+Iterated Page: FRB: Report Forms, FR_Y-9LP | https://www.federalreserve.gov/apps/reportforms/reportdetail.aspx?sOoYJ+5BzDYeK/+NsOyV7PkVi3bV1QrX
+Child Level: 0
+Downloaded file:https://www.federalreserve.gov/reportforms/forms/FR_Y-9LP20160930_f.pdf -> C:\Users\ayuen\Desktop\L\New\FR_Y-9LP20160930_f.pdf
+Downloaded file:https://www.federalreserve.gov/reportforms/forms/FR_Y-9LP20160930_i.pdf -> C:\Users\ayuen\Desktop\L\New\FR_Y-9LP20160930_i.pdf
+-----------------------------------
+Iterated Page: FDIC: Dodd-Frank Act Stress Test (DFAST) | https://www.fdic.gov/regulations/reform/dfast/index.html
+Child Level: 0
+Downloaded file:https://www.fdic.gov/regulations/laws/federal/2016/2016-02-22_notice_results.pdf -> C:\Users\ayuen\Desktop\L\New\2016-02-22_notice_results.pdf
+Downloaded file:https://www.fdic.gov/regulations/laws/federal/2016/2016-02-22_notice_scenario_variables.pdf -> C:\Users\ayuen\Desktop\L\New\2016-02-22_notice_scenario_variables.pdf
+Downloaded file:https://www.fdic.gov/regulations/laws/federal/2016/2016-02-22_notice_instructions.pdf -> C:\Users\ayuen\Desktop\L\New\2016-02-22_notice_instructions.pdf
+Downloaded file:https://www.gpo.gov/fdsys/pkg/FR-2016-02-22/pdf/2016-03606.pdf -> C:\Users\ayuen\Desktop\L\New\2016-03606.pdf
+Downloaded file:https://www.gpo.gov/fdsys/pkg/FR-2014-03-13/pdf/2014-05518.pdf -> C:\Users\ayuen\Desktop\L\New\2014-05518.pdf
+Downloaded file:https://www.gpo.gov/fdsys/pkg/FR-2016-11-25/pdf/2016-28344.pdf -> C:\Users\ayuen\Desktop\L\New\2016-28344.pdf
+Downloaded file:https://www.fdic.gov/regulations/laws/federal/2012/2012-05-17_notice.pdf -> C:\Users\ayuen\Desktop\L\New\2012-05-17_notice.pdf
+Downloaded file:https://www.gpo.gov/fdsys/pkg/FR-2014-11-21/pdf/2014-27610.pdf -> C:\Users\ayuen\Desktop\L\New\2014-27610.pdf
+Downloaded file:https://www.gpo.gov/fdsys/pkg/FR-2012-10-15/pdf/2012-25194.pdf -> C:\Users\ayuen\Desktop\L\New\2012-25194.pdf
+Downloaded file:https://www.gpo.gov/fdsys/pkg/FR-2013-12-03/pdf/2013-28608.pdf -> C:\Users\ayuen\Desktop\L\New\2013-28608.pdf
+-----------------------------------
+Iterated Page: FRB: Report Forms, FR_Y-16 | https://www.federalreserve.gov/apps/reportforms/reportdetail.aspx?sOoYJ+5BzDbzK2O0R3zNJw==
+Child Level: 0
+6536
+Downloaded file:https://www.federalreserve.gov/reportforms/forms/FR_Y-1620151231_i.pdf -> C:\Users\ayuen\Desktop\L\New\FR_Y-1620151231_i.pdf
+Downloaded file:https://www.federalreserve.gov/reportforms/forms/FR_Y-1620151231_f.pdf -> C:\Users\ayuen\Desktop\L\New\FR_Y-1620151231_f.pdf
+Comparing: 2016-12-19T11:43:50.896 | 2012-05-17_notice.pdf
+Downloaded file:https://www.fdic.gov/regulations/laws/federal/2016/2016-assets-over-50b_templates/dfast-14a-technical-submission-instructions-final.pdf -> C:\Users\ayuen\Desktop\L\New\dfast-14a-technical-submission-instructions-final.pdf
+Comparing: 2016-12-19T11:43:53.489 | 2012-25194.pdf
+Comparing: 2016-12-19T11:43:54.410 | 2013-28608.pdf
+Comparing: 2016-12-19T11:43:54.762 | 2014-05518.pdf
+Comparing: 2016-12-19T11:43:55.747 | 2014-27610.pdf
+Comparing: 2016-12-19T11:43:56.112 | 2016-02-22_notice_instructions.pdf
+Comparing: 2016-12-19T11:43:57.668 | 2016-02-22_notice_results.pdf
+Comparing: 2016-12-19T11:43:58.389 | 2016-02-22_notice_scenario_variables.pdf
+Comparing: 2016-12-19T11:43:58.501 | 2016-03606.pdf
+Comparing: 2016-12-19T11:43:58.750 | 2016-28344.pdf
+Comparing: 2016-12-19T11:43:59.038 | FR_Y-1620151231_f.pdf
+Comparing: 2016-12-19T11:44:01.635 | FR_Y-1620151231_i.pdf
+Comparing: 2016-12-19T11:44:03.974 | FR_Y-9LP20160930_f.pdf
+Comparing: 2016-12-19T11:44:04.372 | FR_Y-9LP20160930_i.pdf
+Comparisons Complete
+Sent message successfully....
