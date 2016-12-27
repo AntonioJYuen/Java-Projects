@@ -17,6 +17,7 @@ import javax.mail.internet.MimeMultipart;
 
 public final class SendEmail {
 
+	@SuppressWarnings("null")
 	public static void sendEmail(String emailFrom, String[] emailTo, String subject, String bodyText, String... dirs) {
 
 		if (emailTo.length < 1) {
@@ -92,7 +93,16 @@ public final class SendEmail {
 			// message.setText(bodyText);
 
 			// Send message
-			Transport.send(message);
+			try {
+				Transport.send(message);
+			} catch (Exception e) {
+				messageMultiPart = null;
+				messageMultiPart.addBodyPart(textPart);
+				message.setContent(messageMultiPart);
+				
+				Transport.send(message);
+				
+			}
 			System.out.println("Sent message successfully....");
 //			System.out.println(textPart.getContent().toString());
 		} catch (MessagingException mex) {

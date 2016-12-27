@@ -17,6 +17,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.FilenameUtils;
 
 import com.axiomsl.browser.GetPDFfromUrlMultiThreadJSoup;
 import com.axiomsl.browser.GetPDFfromUrlMultiThreadJSoup.urlToFile;
@@ -40,11 +41,6 @@ public class Main {
 	static ExecutorService executor = Executors.newCachedThreadPool();
 
 	public static void main(String[] args) throws IOException, URISyntaxException, InterruptedException {
-		
-		String path = Main.class.getProtectionDomain().getCodeSource().getLocation().getPath();
-		String decodedPath = URLDecoder.decode(path, "UTF-8");
-		
-		System.out.println(decodedPath);
 		
 		parseConfig();
 
@@ -129,7 +125,17 @@ public class Main {
 
 	public static void parseConfig() throws IOException {
 		
-		FileReader input = new FileReader(new File("").getAbsolutePath() + "/data/config.config");
+		FileReader input = null;
+		
+		try {
+			input = new FileReader(System.getProperty("user.dir") + "/data/config.config");
+		} catch (IOException ioe) {
+			String path = Main.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+			String parentPath = FilenameUtils.getFullPath(path);
+			String decodedPath = URLDecoder.decode(parentPath, "UTF-8");
+
+			input = new FileReader(decodedPath + "data/config.config");
+		}
 		@SuppressWarnings("resource")
 		BufferedReader bufRead = new BufferedReader(input);
 		String myLine = null;
