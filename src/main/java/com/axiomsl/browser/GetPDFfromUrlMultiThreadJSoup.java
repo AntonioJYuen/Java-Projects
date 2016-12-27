@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
+import java.net.SocketTimeoutException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -36,7 +37,7 @@ public class GetPDFfromUrlMultiThreadJSoup {
 
 			if (!iteratedLinks.contains(request)) {
 
-				Document doc;
+				Document doc = null;
 
 				// need http protocol
 				request = encodeURL(
@@ -44,9 +45,21 @@ public class GetPDFfromUrlMultiThreadJSoup {
 
 				iteratedLinks.add(request);
 
-				doc = Jsoup.connect(request).userAgent("Mozilla").ignoreHttpErrors(true)
-						.referrer("http://www.google.com").timeout(0).ignoreContentType(true).followRedirects(true)
-						.get();
+				int i = 0;
+
+				while (i < 3) {
+
+					try {
+						doc = Jsoup.connect(request).userAgent("Mozilla").ignoreHttpErrors(true)
+								.referrer("http://www.google.com").timeout(0).ignoreContentType(true)
+								.followRedirects(true).get();
+						break;
+					} catch (SocketTimeoutException e) {
+						e.printStackTrace();
+					}
+					
+					i++;
+				}
 
 				// get page title
 				String title = doc.title();

@@ -128,8 +128,8 @@ public class Main {
 	}
 
 	public static void parseConfig() throws IOException {
-
-		FileReader input = new FileReader(System.getProperty("user.dir") + "/data/config.config");
+		
+		FileReader input = new FileReader(new File("").getAbsolutePath() + "/data/config.config");
 		@SuppressWarnings("resource")
 		BufferedReader bufRead = new BufferedReader(input);
 		String myLine = null;
