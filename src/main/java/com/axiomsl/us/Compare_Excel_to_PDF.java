@@ -11,7 +11,6 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 
-import com.itextpdf.text.log.SysoCounter;
 import com.testautomationguru.utility.PDFUtil;
 
 public class Compare_Excel_to_PDF {
