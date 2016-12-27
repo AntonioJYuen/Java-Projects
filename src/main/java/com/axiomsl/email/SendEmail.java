@@ -1,7 +1,6 @@
 package com.axiomsl.email;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.Properties;
 
 import javax.activation.DataHandler;
