@@ -1,68 +1,67 @@
 package com.axiomsl.view;
 
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.PrintStream;
 import java.net.URISyntaxException;
+
+import javax.swing.JOptionPane;
+
 import com.axiomsl.api.view.AbstractController;
 import com.axiomsl.api.view.LoadingIndicator;
-import com.axiomsl.us.Compare_Excel_to_PDF;
+import com.testautomationguru.utility.PDFUtil;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.CheckBox;
 import javafx.stage.FileChooser;
-import javafx.stage.DirectoryChooser;
 
 public class AutoJiraController extends AbstractController {
 
-	// @FXML
-	// private Button chooseDestButton;
+	@FXML
+	private TextField pdfText1;
 
 	@FXML
-	private TextField excelPathText;
-
-	@FXML
-	private TextField pdfPathText;
+	private TextField pdfText2;
 
 	@FXML
 	private TextField destPathText;
-	
+
 	@FXML
-	private TextArea outputText;
+	private CheckBox allPages;
+
+	@FXML
+	private TextField pageBox;
 
 	// private Project project;
-	private String excelPath;
-	private String lastExcelPath;
-	private String pdfPath;
-	private String lastPDFPath;
-	private String destPath;
-	private String lastDestPath;
+	private String pdfPath1;
+	private String lastPDFPath1;
+
+	private String pdfPath2;
+	private String lastPDFPath2;
 
 	@FXML
 	void chooseExcel(ActionEvent event) {
 
 		FileChooser fc = new FileChooser();
 
-		if (lastExcelPath != null) {
-			fc.setInitialDirectory(new File(lastExcelPath));
+		if (lastPDFPath1 != null) {
+			fc.setInitialDirectory(new File(lastPDFPath1));
 		} else {
 			fc.setInitialDirectory(new File(System.getProperty("user.home") + "/Desktop"));
 		}
 
 		File selectedFile = fc.showOpenDialog(null);
-		if (selectedFile == null && excelPathText.getText().equals("")) {
-			excelPathText.setText("No file selected");
+		if (selectedFile == null && pdfText1.getText().equals("")) {
+			pdfText1.setText("No file selected");
 		} else if (selectedFile == null) {
 			System.out.println("Canceled");
-		} else if (!selectedFile.getAbsoluteFile().getName().contains(".xls")) {
-			excelPathText.setText("Wrong File Type");
+		} else if (!selectedFile.getAbsoluteFile().getName().contains(".pdf")) {
+			pdfText1.setText("Wrong File Type");
 		} else {
-			excelPathText.setText(selectedFile.getAbsolutePath());
-			excelPath = excelPathText.getText();
-			lastExcelPath = selectedFile.getParent();
+			pdfText1.setText(selectedFile.getAbsolutePath());
+			pdfPath1 = pdfText1.getText();
+			lastPDFPath1 = selectedFile.getParent();
 		}
 	}
 
@@ -71,47 +70,30 @@ public class AutoJiraController extends AbstractController {
 
 		FileChooser fc = new FileChooser();
 
-		if (lastPDFPath != null) {
-			fc.setInitialDirectory(new File(lastPDFPath));
+		if (lastPDFPath2 != null) {
+			fc.setInitialDirectory(new File(lastPDFPath2));
 		} else {
 			fc.setInitialDirectory(new File(System.getProperty("user.home") + "/Desktop"));
 		}
 
 		File selectedFile = fc.showOpenDialog(null);
-		if (selectedFile == null && pdfPathText.getText().equals("")) {
-			pdfPathText.setText("No file selected");
+		if (selectedFile == null && pdfText2.getText().equals("")) {
+			pdfText2.setText("No file selected");
 		} else if (selectedFile == null) {
 			System.out.println("Canceled");
 		} else if (!selectedFile.getAbsoluteFile().getName().contains(".pdf")) {
-			pdfPathText.setText("Wrong File Type");
+			pdfText2.setText("Wrong File Type");
 		} else {
-			pdfPathText.setText(selectedFile.getAbsolutePath());
-			pdfPath = pdfPathText.getText();
-			lastPDFPath = selectedFile.getParent();
+			pdfText2.setText(selectedFile.getAbsolutePath());
+			pdfPath2 = pdfText2.getText();
+			lastPDFPath2 = selectedFile.getParent();
 		}
 	}
 
 	@FXML
-	void chooseDestination(ActionEvent event) {
+	void disablePageBox() {
 
-		DirectoryChooser dc = new DirectoryChooser();
-
-		if (lastDestPath != null) {
-			dc.setInitialDirectory(new File(lastDestPath));
-		} else {
-			dc.setInitialDirectory(new File(System.getProperty("user.home") + "/Desktop"));
-		}
-
-		File selectedDir = dc.showDialog(null);
-		if (selectedDir == null && destPathText.getText().equals("")) {
-			destPathText.setText("No directory selected");
-		} else if (selectedDir == null) {
-			System.out.println("Canceled");
-		} else {
-			destPathText.setText(selectedDir.getAbsolutePath());
-			destPath = destPathText.getText();
-			lastDestPath = selectedDir.getParent();
-		}
+		pageBox.setDisable(allPages.isSelected());
 	}
 
 	@FXML
@@ -127,27 +109,49 @@ public class AutoJiraController extends AbstractController {
 			@Override
 			public void start() throws Exception {
 
-				System.out.println(excelPath + " | " + pdfPath + " | " + destPath);
-				
-				Compare_Excel_to_PDF etp = new Compare_Excel_to_PDF();
-				Compare_Excel_to_PDF.startComparison(excelPath, pdfPath);
-				
-				// System.out.println(etp.getOutput());
+				PDFUtil pdfUtil = new PDFUtil();
 
-				if (destPath!=null) {
-					@SuppressWarnings("resource")
-					PrintStream out = new PrintStream(new FileOutputStream(destPath + "\\Output.txt"));
-					out.print(etp.getOutput());
+				try {
+					if (allPages.isSelected()) {
+						pdfUtil.compare(pdfPath1, pdfPath2, 0, 0, true, true);
+					} else {
+						String[] pages = pageBox.getText().split(";");
+
+						for (String s : pages) {
+
+							String[] range = s.split("-");
+
+							if (range.length == 1) {
+
+								int startPage = Integer.valueOf(range[0]);
+								pdfUtil.compare(pdfPath1, pdfPath2, startPage, startPage, true, false);
+							} else if (range.length == 2) {
+
+								int startPage = Integer.valueOf(range[0]);
+								int endPage = Integer.valueOf(range[1]);
+
+								for (int iPage = startPage; iPage <= endPage; iPage++) {
+									pdfUtil.compare(pdfPath1, pdfPath2, iPage, iPage, true, false);
+								}
+							} else {
+
+								System.out.println("Not a valid page format");
+							}
+						}
+					}
+
+					JOptionPane.showMessageDialog(null, "Complete", "Complete", JOptionPane.INFORMATION_MESSAGE);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					JOptionPane.showMessageDialog(null, "Error", "Error", JOptionPane.WARNING_MESSAGE);
+					e.printStackTrace();
 				}
 
-				outputText.setText(etp.getOutput());
-				
-				etp.clearOutput();
 			}
 
 			@Override
 			public void end() throws IOException, InterruptedException {
-					
+
 			}
 
 		});
