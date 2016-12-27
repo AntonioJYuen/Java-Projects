@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
@@ -39,6 +40,11 @@ public class Main {
 	static ExecutorService executor = Executors.newCachedThreadPool();
 
 	public static void main(String[] args) throws IOException, URISyntaxException, InterruptedException {
+		
+		String path = Main.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+		String decodedPath = URLDecoder.decode(path, "UTF-8");
+		
+		System.out.println(decodedPath);
 		
 		parseConfig();
 
