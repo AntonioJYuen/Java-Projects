@@ -14,7 +14,7 @@
 		<java_version>1.8</java_version>
 		<jfx_mvn_version>8.4.0</jfx_mvn_version>
 		<poi_version>3.14-beta1</poi_version>
-		<main_class>com.axiomsl.app.AutoJiraApp</main_class>
+		<main_class>com.axiomsl.us.AutoJiraApp</main_class>
 		<jar_name>${project.artifactId}</jar_name>
 		<resources_dir>data</resources_dir>
 	</properties>
