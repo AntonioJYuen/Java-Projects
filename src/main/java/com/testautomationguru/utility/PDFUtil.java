@@ -34,7 +34,6 @@ import org.apache.pdfbox.rendering.ImageType;
 import org.apache.pdfbox.rendering.PDFRenderer;
 import org.apache.pdfbox.tools.imageio.ImageIOUtil;
 import org.apache.pdfbox.text.PDFTextStripper;
-import org.apache.commons.io.FileUtils;
 
 /**
  * <h1>PDF Utility</h1> A simple pdf utility using apache pdfbox to get the
@@ -471,13 +470,13 @@ public class PDFUtil {
 		logger.info("file1 : " + file1);
 		logger.info("file2 : " + file2);
 
-		int pgCount1 = this.getPageCount(file1);
+/*		int pgCount1 = this.getPageCount(file1);
 		int pgCount2 = this.getPageCount(file2);
 
 		if (pgCount1 != pgCount2) {
 			logger.warning("files page counts do not match - returning false");
 			return false;
-		}
+		}*/
 
 		if (this.bHighlightPdfDifference)
 			this.createImageDestinationDirectory(file2);
@@ -626,12 +625,13 @@ public class PDFUtil {
 			File sourceFile = new File(file);
 			String destinationDir = sourceFile.getParent() + "/PDF_Comparison/";
 			this.imageDestinationPath = destinationDir;
-			this.createFolder(destinationDir);
+			if (!new File(destinationDir).exists()) {
+				this.createFolder(destinationDir);
+			}
 		}
 	}
 
 	private boolean createFolder(String file) throws IOException {
-		FileUtils.deleteDirectory(new File(file));
 		return new File(file).mkdir();
 	}
 

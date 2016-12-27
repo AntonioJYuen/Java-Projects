@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.axiomsl.us</groupId>
-	<artifactId>Excel_Column_And_PDF_Compare</artifactId>
+	<artifactId>Side_by_Side_PDF_Compare</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 

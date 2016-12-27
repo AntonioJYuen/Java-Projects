@@ -111,6 +111,15 @@ public class AutoJiraController extends AbstractController {
 
 				PDFUtil pdfUtil = new PDFUtil();
 
+				if (allPages.isSelected() && pdfUtil.getPageCount(pdfPath1) != pdfUtil.getPageCount(pdfPath2)) {
+
+					JOptionPane.showMessageDialog(null,
+							"Both PDFs have different page counts. Specify the pages to be compared instead.",
+							"Both PDFs have different page counts. Specify the pages to be compared instead.",
+							JOptionPane.WARNING_MESSAGE);
+					return;
+				}
+				
 				try {
 					if (allPages.isSelected()) {
 						pdfUtil.compare(pdfPath1, pdfPath2, 0, 0, true, true);
