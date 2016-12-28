@@ -99,12 +99,12 @@ public final class SendEmail {
 				messageMultiPart = null;
 				messageMultiPart.addBodyPart(textPart);
 				message.setContent(messageMultiPart);
-				
+
 				Transport.send(message);
-				
+
 			}
 			System.out.println("Sent message successfully....");
-//			System.out.println(textPart.getContent().toString());
+			// System.out.println(textPart.getContent().toString());
 		} catch (MessagingException mex) {
 			mex.printStackTrace();
 		}

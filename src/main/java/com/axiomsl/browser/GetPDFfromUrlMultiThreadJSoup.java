@@ -57,7 +57,7 @@ public class GetPDFfromUrlMultiThreadJSoup {
 					} catch (SocketTimeoutException e) {
 						e.printStackTrace();
 					}
-					
+
 					i++;
 				}
 
@@ -71,6 +71,9 @@ public class GetPDFfromUrlMultiThreadJSoup {
 
 					// get all links
 					Elements links = doc.select(childFilter);
+
+					// Use this to debug jsoup queries
+					// System.out.println(links.toString());
 
 					for (Element link : links) {
 

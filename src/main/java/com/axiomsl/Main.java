@@ -41,7 +41,7 @@ public class Main {
 	static ExecutorService executor = Executors.newCachedThreadPool();
 
 	public static void main(String[] args) throws IOException, URISyntaxException, InterruptedException {
-		
+
 		parseConfig();
 
 		long start = System.currentTimeMillis();
@@ -55,13 +55,13 @@ public class Main {
 			int childLevels;
 			boolean getAllPDFs;
 
-			url = s.split(",")[0];
-			parentFilter = s.split(",")[2];
-			childFilter = s.split(",")[3];
+			url = s.split("[|]")[0];
+			parentFilter = s.split("[|]")[2];
+			childFilter = s.split("[|]")[3];
 
-			childLevels = Integer.parseInt(s.split(",")[1]);
+			childLevels = Integer.parseInt(s.split("[|]")[1]);
 
-			getAllPDFs = Boolean.getBoolean(s.split(",")[4]);
+			getAllPDFs = Boolean.getBoolean(s.split("[|]")[4]);
 
 			GetPDFfromUrlMultiThreadJSoup.downloadFiles(executor, url, newDir, childLevels, parentFilter, childFilter,
 					getAllPDFs);
@@ -124,9 +124,9 @@ public class Main {
 	}
 
 	public static void parseConfig() throws IOException {
-		
+
 		FileReader input = null;
-		
+
 		try {
 			input = new FileReader(System.getProperty("user.dir") + "/data/config.config");
 		} catch (IOException ioe) {
@@ -149,7 +149,8 @@ public class Main {
 
 						newDir = myLine.split("newDir=")[1].trim();
 
-					} catch (Exception e) {}
+					} catch (Exception e) {
+					}
 
 				}
 
@@ -159,7 +160,8 @@ public class Main {
 
 						oldDir = myLine.split("oldDir=")[1].trim();
 
-					} catch (Exception e) {}
+					} catch (Exception e) {
+					}
 
 				}
 
@@ -169,7 +171,8 @@ public class Main {
 
 						email = myLine.split("email=")[1].trim();
 
-					} catch (Exception e) {}
+					} catch (Exception e) {
+					}
 
 				}
 
@@ -179,7 +182,8 @@ public class Main {
 
 						emailFrom = myLine.split("emailFrom=")[1].trim();
 
-					} catch (Exception e) {}
+					} catch (Exception e) {
+					}
 
 				}
 
@@ -190,5 +194,5 @@ public class Main {
 			}
 		}
 	}
-	
+
 }
