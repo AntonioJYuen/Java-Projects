@@ -30,7 +30,6 @@ public class GetPDFfromUrlMultiThreadJSoup {
 			String parentFilter, String childFilter, boolean getAllChildPDF) throws IOException, URISyntaxException {
 
 		try {
-
 			String consoleOutput = "";
 
 			String request = encodeURL(url);
@@ -48,7 +47,6 @@ public class GetPDFfromUrlMultiThreadJSoup {
 				int i = 0;
 
 				while (i < 3) {
-
 					try {
 						doc = Jsoup.connect(request).userAgent("Mozilla").ignoreHttpErrors(true)
 								.referrer("http://www.google.com").timeout(0).ignoreContentType(true)
@@ -57,7 +55,6 @@ public class GetPDFfromUrlMultiThreadJSoup {
 					} catch (SocketTimeoutException e) {
 						e.printStackTrace();
 					}
-
 					i++;
 				}
 
@@ -73,7 +70,7 @@ public class GetPDFfromUrlMultiThreadJSoup {
 					Elements links = doc.select(childFilter);
 
 					// Use this to debug jsoup queries
-//					 System.out.println(links.toString());
+					// System.out.println(links.toString());
 
 					for (Element link : links) {
 
@@ -83,7 +80,7 @@ public class GetPDFfromUrlMultiThreadJSoup {
 						String fileName = childURL.split("/")[childURL.split("/").length - 1].split("[?]")[0];
 
 						// Downloads files
-						File file = new File(dir + fileName);
+						File file = new File(dir + fileName.replaceAll("%20", " "));
 
 						// Create URL object
 						URL childURLObj = new URL(childURL);
@@ -95,7 +92,6 @@ public class GetPDFfromUrlMultiThreadJSoup {
 								Connection.Response redirRequest = Jsoup
 										.connect(java.util.Objects.toString(childURLObj)).method(Method.GET)
 										.followRedirects(false).execute();
-
 								childURLObj = new URL(encodeURL(redirRequest.header("location")));
 							} catch (Exception e) {
 								loopRedirects = false;
@@ -110,7 +106,6 @@ public class GetPDFfromUrlMultiThreadJSoup {
 							consoleOutput = consoleOutput + task.get();
 						}
 					}
-
 				}
 
 				if (childLevel > 0) {
@@ -121,24 +116,15 @@ public class GetPDFfromUrlMultiThreadJSoup {
 					childLevel--;
 
 					for (Element link : links) {
-
 						downloadFiles(executor, java.util.Objects.toString(link.attr("abs:href")), dir, childLevel,
 								parentFilter, childFilter, getAllChildPDF);
-
 					}
-
 				}
-
 			}
-
 			System.out.println(consoleOutput);
-
 		} catch (Exception e) {
-
 			System.out.println(e.getMessage());
-
 		}
-
 	}
 
 	@SuppressWarnings("unused")
@@ -157,7 +143,6 @@ public class GetPDFfromUrlMultiThreadJSoup {
 			e.printStackTrace();
 			return "";
 		}
-
 	}
 
 	public static String encodeURL(String urlStr) throws URISyntaxException, MalformedURLException {
@@ -185,14 +170,12 @@ public class GetPDFfromUrlMultiThreadJSoup {
 		private String consoleOutput = "";
 
 		public urlToFile(URL url, File dest) {
-
 			this.url = url;
 			this.dest = dest;
 		}
 
 		@Override
 		public String call() throws Exception {
-
 			FileUtils.copyURLToFile(url, dest);
 			consoleOutput = consoleOutput + "Downloaded file:" + url + " -> " + dest + "\r\n";
 			return consoleOutput;

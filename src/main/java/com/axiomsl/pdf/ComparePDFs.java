@@ -92,7 +92,6 @@ public class ComparePDFs {
 						// Write into a list - error files
 						if (!corruptPDFs.contains(java.util.Objects.toString(path.getFileName())))
 							corruptPDFs.add(java.util.Objects.toString(path.getFileName()));
-
 					}
 				}
 			}
@@ -153,7 +152,6 @@ public class ComparePDFs {
 	}
 
 	public void clearLists() {
-
 		miscPDFs = null;
 		failedPDFs = null;
 		corruptPDFs = null;

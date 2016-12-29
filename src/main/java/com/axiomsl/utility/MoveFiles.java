@@ -38,7 +38,6 @@ public class MoveFiles {
 					System.out.println("Moved: " + fromDir + fileName + " -> " + toDir + fileName);
 				else
 					System.out.println("Failed to move: " + fromDir + fileName);
-
 			}
 
 		} catch (Exception e) {

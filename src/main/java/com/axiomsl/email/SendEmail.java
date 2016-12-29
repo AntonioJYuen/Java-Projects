@@ -17,7 +17,6 @@ import javax.mail.internet.MimeMultipart;
 
 public final class SendEmail {
 
-	@SuppressWarnings("null")
 	public static void sendEmail(String emailFrom, String[] emailTo, String subject, String bodyText, String... dirs) {
 
 		if (emailTo.length < 1) {
@@ -61,14 +60,12 @@ public final class SendEmail {
 
 			// Add attachments
 			for (String s : dirs) {
-
 				for (String t : bodyText.split("-------------PDFs that have passed validation-------------")[0]
 						.split("\r\n")) {
 
 					File attch = new File(new File(s), t);
 
 					if (attch.isFile()) {
-
 						MimeBodyPart messageBodyPart = new MimeBodyPart();
 
 						DataSource source = new FileDataSource(attch.getAbsolutePath());
@@ -76,11 +73,8 @@ public final class SendEmail {
 						// Name of parent folder_Attachment Name
 						messageBodyPart.setFileName(attch.getParentFile().getName() + "_" + attch.getName());
 						messageMultiPart.addBodyPart(messageBodyPart);
-
 					}
-
 				}
-
 			}
 			final MimeBodyPart textPart = new MimeBodyPart();
 

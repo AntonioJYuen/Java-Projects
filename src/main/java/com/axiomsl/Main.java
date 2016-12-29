@@ -18,6 +18,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.io.filefilter.AndFileFilter;
 
 import com.axiomsl.browser.GetPDFfromUrlMultiThreadJSoup;
 import com.axiomsl.browser.GetPDFfromUrlMultiThreadJSoup.urlToFile;
@@ -51,28 +52,21 @@ public class Main {
 
 		for (String s : urlConfig) {
 
-			String url, parentFilter, childFilter;
-			int childLevels;
-			boolean getAllPDFs;
+			String url = s.split("[|]")[0];
+			String parentFilter = s.split("[|]")[2];
+			String childFilter = s.split("[|]")[3];
 
-			url = s.split("[|]")[0];
-			parentFilter = s.split("[|]")[2];
-			childFilter = s.split("[|]")[3];
+			int childLevels = Integer.parseInt(s.split("[|]")[1]);
 
-			childLevels = Integer.parseInt(s.split("[|]")[1]);
-
-			getAllPDFs = Boolean.getBoolean(s.split("[|]")[4]);
+			boolean getAllPDFs = Boolean.getBoolean(s.split("[|]")[4]);
 
 			GetPDFfromUrlMultiThreadJSoup.downloadFiles(executor, url, newDir, childLevels, parentFilter, childFilter,
 					getAllPDFs);
-
 		}
 
 		// Wait for thread complete
 		executor.shutdown();
 		executor.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
-		// GetPDFfromUrlMultiThreadJSoup.downloadFiles("https://www.newyorkfed.org/financial-services-and-infrastructure/financial-market-infrastructure-and-reform/money-market-funds",
-		// newDir, 0, "a[href*=form]", "a[href*=.pdf]", true, true);
 
 		long time = System.currentTimeMillis() - start;
 		System.out.println(time);
@@ -109,17 +103,13 @@ public class Main {
 		String bodyText = "";
 
 		if (list.size() > 0) {
-
 			bodyText = bodyText + "\r\n";
 			bodyText = bodyText + "-------------" + prefix + "-------------\r\n";
 			bodyText = bodyText + "\r\n";
 			for (String s : list) {
 				bodyText = bodyText + s + "\r\n";
-
 			}
-
 		}
-
 		return bodyText;
 	}
 
@@ -142,49 +132,31 @@ public class Main {
 
 		while ((myLine = bufRead.readLine()) != null) {
 			if (!myLine.startsWith("*")) {
-
 				if (newDir == null) {
-
 					try {
-
 						newDir = myLine.split("newDir=")[1].trim();
-
-					} catch (Exception e) {}
-
+					} catch (Exception e) {
+					}
 				}
-
 				if (oldDir == null) {
-
 					try {
-
 						oldDir = myLine.split("oldDir=")[1].trim();
-
-					} catch (Exception e) {}
-
+					} catch (Exception e) {
+					}
 				}
-
 				if (email == null) {
-
 					try {
-
 						email = myLine.split("email=")[1].trim();
-
-					} catch (Exception e) {}
-
+					} catch (Exception e) {
+					}
 				}
-
 				if (emailFrom == null) {
-
 					try {
-
 						emailFrom = myLine.split("emailFrom=")[1].trim();
-
-					} catch (Exception e) {}
-
+					} catch (Exception e) {
+					}
 				}
-
-				if (myLine.startsWith("http")) {
-
+				if (myLine.startsWith("http") && myLine.split("[|]").length == 5) {
 					urlConfig.add(myLine);
 				}
 			}
