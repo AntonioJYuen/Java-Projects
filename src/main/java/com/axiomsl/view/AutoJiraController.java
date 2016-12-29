@@ -16,6 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.CheckBox;
 import javafx.stage.FileChooser;
 
+@SuppressWarnings("restriction")
 public class AutoJiraController extends AbstractController {
 
 	@FXML
