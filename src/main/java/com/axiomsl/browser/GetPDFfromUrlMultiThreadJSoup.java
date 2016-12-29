@@ -80,7 +80,7 @@ public class GetPDFfromUrlMultiThreadJSoup {
 						String fileName = childURL.split("/")[childURL.split("/").length - 1].split("[?]")[0];
 
 						// Downloads files
-						File file = new File(dir + fileName.replaceAll("%20", " "));
+						File file = new File(dir + fileName.replaceAll("%20", " ").replaceAll(" ", "_"));
 
 						// Create URL object
 						URL childURLObj = new URL(childURL);
