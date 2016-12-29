@@ -16,6 +16,7 @@ import javafx.scene.control.TextArea;
 import javafx.stage.FileChooser;
 import javafx.stage.DirectoryChooser;
 
+@SuppressWarnings("restriction")
 public class AutoJiraController extends AbstractController {
 
 	// @FXML
