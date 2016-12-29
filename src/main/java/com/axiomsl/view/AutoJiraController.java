@@ -36,6 +36,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.DirectoryChooser;
 
+@SuppressWarnings("restriction")
 public class AutoJiraController extends AbstractController {
 	@FXML
 	private Button automateButoon;
