@@ -96,7 +96,7 @@ public final class SendEmail {
 			try {
 				Transport.send(message);
 			} catch (Exception e) {
-				messageMultiPart = null;
+				messageMultiPart = new MimeMultipart();
 				messageMultiPart.addBodyPart(textPart);
 				message.setContent(messageMultiPart);
 

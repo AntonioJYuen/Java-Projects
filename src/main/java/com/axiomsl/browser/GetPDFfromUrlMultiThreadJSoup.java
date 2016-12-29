@@ -73,7 +73,7 @@ public class GetPDFfromUrlMultiThreadJSoup {
 					Elements links = doc.select(childFilter);
 
 					// Use this to debug jsoup queries
-					// System.out.println(links.toString());
+//					 System.out.println(links.toString());
 
 					for (Element link : links) {
 

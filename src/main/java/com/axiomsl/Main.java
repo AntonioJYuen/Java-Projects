@@ -149,8 +149,7 @@ public class Main {
 
 						newDir = myLine.split("newDir=")[1].trim();
 
-					} catch (Exception e) {
-					}
+					} catch (Exception e) {}
 
 				}
 
@@ -160,8 +159,7 @@ public class Main {
 
 						oldDir = myLine.split("oldDir=")[1].trim();
 
-					} catch (Exception e) {
-					}
+					} catch (Exception e) {}
 
 				}
 
@@ -171,8 +169,7 @@ public class Main {
 
 						email = myLine.split("email=")[1].trim();
 
-					} catch (Exception e) {
-					}
+					} catch (Exception e) {}
 
 				}
 
@@ -182,8 +179,7 @@ public class Main {
 
 						emailFrom = myLine.split("emailFrom=")[1].trim();
 
-					} catch (Exception e) {
-					}
+					} catch (Exception e) {}
 
 				}
 
